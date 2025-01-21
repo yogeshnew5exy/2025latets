@@ -9,7 +9,7 @@ aiofiles==23.2.1
 asyncio
 pycurl
 humanize
-
+cloudscraper==1.2.71
 cryptg
 telethon==1.33.1
 python-decouple
