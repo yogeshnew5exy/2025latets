@@ -78,7 +78,7 @@ async def account_login(bot: Client, m: Message):
        "𝐇𝐞𝐥𝐥𝐨 ❤️\n\n🔥💘⇨ㄚŏᶢєȿ𝘩☔️\n\n❈ में आपकी सेवा में हाजिर हु , कृपया  /yogesh Command का उपयोग करें। ", reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("मेरे खुदा से संपर्क करे" ,url=f"https://t.me/StudyMateIndia4") ],
+                    InlineKeyboardButton("मेरे खुदा से संपर्क करे" ,url=f"tg://openmessage?user_id=5839999461") ],
                                                    
             ]))
 
@@ -89,9 +89,9 @@ async def restart_handler(_, m):
 
 
 
-@bot.on_message(filters.command(["Moni"]))
+@bot.on_message(filters.command(["yogesh"]))
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text('𝐓𝐨 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝 𝐀 𝐓𝐱𝐭 𝐅𝐢𝐥𝐞 𝐒𝐞𝐧𝐝 𝐇𝐞𝐫𝐞 ⏍')
+    editable = await m.reply_text('𝐓𝐨 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝 𝐀 𝐓𝐱𝐭 𝐅𝐢𝐥𝐞 𝐒𝐞𝐧𝐝 𝐇𝐞𝐫𝐞')
     input: Message = await bot.listen(editable.chat.id)
     x = await input.download()
     await input.delete(True)
@@ -101,23 +101,19 @@ async def account_login(bot: Client, m: Message):
 
     try:
        with open(x, "r") as f:
-           content = f.read().strip()
+           content = f.read()
     
-       lines = content.splitlines()
+       content = content.split("\n")
        links = []
     
-       for line in lines:
-           line = line.strip()
-           if line:
-               link = line.split("://", 1)
-               if len(link) > 1:
-                   links.append(link)
-    
+       for i in content:
+           links.append(i.split("://", 1))
        os.remove(x)
-       print(len(links))
+    
+       
     
     except:
-           await m.reply_text("∝ 𝐈𝐧𝐯𝐚𝐥𝐢𝐝 𝐟𝐢𝐥𝐞 𝐢𝐧𝐩𝐮𝐭.")
+           await m.reply_text("𝐈𝐧𝐯𝐚𝐥𝐢𝐝 𝐟𝐢𝐥𝐞 𝐢𝐧𝐩𝐮𝐭")
            os.remove(x)
            return
    
@@ -135,7 +131,7 @@ async def account_login(bot: Client, m: Message):
     else:
         b_name = raw_text0
      
-    await editable.edit("∝ 𝐄𝐧𝐭𝐞𝐫 𝐄𝐞𝐬𝐨𝐥𝐮𝐭𝐢𝐨𝐧 🎬\n☞ 144,240,360,480,720,1080\nPlease Choose Quality")
+    await editable.edit("𝐄𝐧𝐭𝐞𝐫 R𝐞𝐬𝐨𝐥𝐮𝐭𝐢𝐨𝐧 🎬\n☞ 144,240,360,480,720,1080\nPlease Choose Quality")
     input2: Message = await bot.listen(editable.chat.id)
     raw_text2 = input2.text
     await input2.delete(True)
@@ -159,27 +155,17 @@ async def account_login(bot: Client, m: Message):
     
     
 
-    await editable.edit("**Enter Your Name or send `de` for use default**")
-
-    # Listen for the user's response
+    await editable.edit("**Enter A Highlighter Otherwise send 👉Co👈 **")
     input3: Message = await bot.listen(editable.chat.id)
-
-    # Get the raw text from the user's message
     raw_text3 = input3.text
-
-    # Delete the user's message after reading it
     await input3.delete(True)
-
-    # Default credit message
-    credit = "️ ⁪⁬⁮⁮⁮"
-    if raw_text3 == 'de':
-        CR = '@SanjayKagra86🩷'
-    elif raw_text3:
-        CR = raw_text3
+    highlighter  = f"️ ⁪⁬⁮⁮⁮"
+    if raw_text3 == 'Co':
+        MR = highlighter 
     else:
-        CR = credit
+        MR = raw_text3
    
-    await editable.edit("🌄 Now send the Thumb url if don't want thumbnail send no ")
+    await editable.edit("Now send the Thumb url if don't want thumbnail send no ")
     input6 = message = await bot.listen(editable.chat.id)
     raw_text6 = input6.text
     await input6.delete(True)
@@ -269,8 +255,8 @@ async def account_login(bot: Client, m: Message):
 
             try:  
                 
-                cc = f'**🎥 VIDEO ID: {str(count).zfill(3)}.\n\n📄 Title: {name1} {res} Sanju.mkv\n\n<pre><code>🔖 Batch Name: {b_name}</code></pre>\n\n📥 Extracted By : {CR}**'
-                cc1 = f'**📁 FILE ID: {str(count).zfill(3)}.\n\n📄 Title: {name1} Moni.pdf \n\n<pre><code>🔖 Batch Name: {b_name}</code></pre>\n\n📥 Extracted By : {CR}**'
+                cc = f'**📺Vid_id  » {str(count).zfill(3)}.\n\nTitle: {name1} {res} {MR}.mkv\n\n<pre><code>🔖 Batch Name: {b_name}</code></pre>\n\n'
+                cc1 = f'**📑PDF_id  »: {str(count).zfill(3)}.\n\nTitle: {name1} {MR}.pdf \n\n<pre><code>🔖 Batch Name: {b_name}</code></pre>\n\n'
                     
                 
                 if "drive" in url:
@@ -325,8 +311,8 @@ async def account_login(bot: Client, m: Message):
                         
                           
                 else:
-                    Show = f"❊⟱ 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 ⟱❊ »\n\n📄 Title:- `{name}\n\n⌨ 𝐐𝐮𝐥𝐢𝐭𝐲 » {raw_text2}`\n\n**🔗 𝐔𝐑𝐋 »** `{url}`"
-                    prog = await m.reply_text(f"**Downloading:-**\n\n**📄 Title:-** `{name}\n\nQuality - {raw_text2}`\n\n**link:**`{url}`\n\n **Bot Made By SanjaKagra86🩷 **")
+                    Show = f"☆_♡ ○_ᵈоᴡₙ𝚕𝘰𝑎ᵈₛ_○ ♡_☆»\n\n📑Title:- `{name}\n\n⌨ 𝐐𝐮𝐥𝐢𝐭𝐲 » {raw_text2}`\n\n**🔗 𝐔𝐑𝐋 »** `{url}`"
+                    prog = await m.reply_text(f"**Downloading:-**\n\n**📑Title:-** `{name}\n\nQuality - {raw_text2}`\n\n**link:**`{url}`\n\n")
                     res_file = await helper.download_video(url, cmd, name)
                     filename = res_file
                     await prog.delete(True)
@@ -336,13 +322,13 @@ async def account_login(bot: Client, m: Message):
 
             except Exception as e:
                 await m.reply_text(
-                    f"⌘ 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐈𝐧𝐭𝐞𝐫𝐮𝐩𝐭𝐞𝐝\n\n⌘ 𝐍𝐚𝐦𝐞 » {name}\n⌘ 𝐋𝐢𝐧𝐤 » `{url}`"
+                    f" DOWNLOAD FAILED \n\n 𝐍𝐚𝐦𝐞 » {name}\n 𝐋𝐢𝐧𝐤 » `{url}`"
                 )
                 continue
 
     except Exception as e:
         await m.reply_text(e)
-    await m.reply_text("🔰Done Boss🔰")
+    await m.reply_text("आपका कार्य सम्पन्न हुआ , धन्यवाद ")
 
 
 
